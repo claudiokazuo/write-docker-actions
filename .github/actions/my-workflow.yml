@@ -1,6 +1,9 @@
 name: Docker Actions
 
-on: [push]
+on: #[push]
+  pull_requests:
+      types: [labeled]
+
 
 jobs:
   action:
@@ -11,5 +14,8 @@ jobs:
 
       - name: hello-action
         uses: ./.github/actions/hello-word
-        with:
-          firstGreeting: "Learning Lab User"
+        # with:
+        #   firstGreeting: "Learning Lab User"
+      
+      - name: meow
+        uses: ./.github/actions/cat-facts        
